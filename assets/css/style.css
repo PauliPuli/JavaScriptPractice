@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: #f3f3f3 ;
+}
+.title {
+color: #6b868b;
+}
+label{
+    color: #10b4d4 ;
+}
+.answer{
+    color: #10b4d4 ;
+}
+.cuadro{
+border: 1px solid #10b4d4;
+border-radius: 5px;
+}
