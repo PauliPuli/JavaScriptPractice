@@ -17,7 +17,7 @@ btnrestar.addEventListener('click', function(){
 let num2= parseInt(document.querySelector('#valor2').value)
     let resta = num1-num2;
     result.innerHTML=`El resultado de la resta entre ${num1} y ${num2} es ${resta}`
+    if (resta <=0){
+        result.innerHTML=`0`
+    }
 })
-if (resta >=0){
-    result.innerHTML=`0`
-}

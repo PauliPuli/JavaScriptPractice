@@ -10,7 +10,11 @@ boton.addEventListener("click", function (e) {
   let valorSubject = asunto.value;
   let valorMessage = msn.value;
   //validacion//
-  if (valorName == "") {
+  if(validar(valorName, valorSubject,valorMessage)){
+    let enviado = document.querySelector(".exitoso");
+    enviado.innerHTML = "Mensaje Enviado con éxito";
+  }
+  if (valorName == ""|| valorSubject =="" || valorMessage =="") {
     let errorName = document.querySelector(".errorNombre");
     let errorSubject = document.querySelector(".errorAsunto");
     let errorMsn = document.querySelector(".errorMensaje");
@@ -19,24 +23,22 @@ boton.addEventListener("click", function (e) {
     errorSubject.innerHTML = "El asunto es requerido";
     errorMsn.innerHTML = "El mensaje es requerido";
   } 
-  else {
-    let enviado = document.querySelector(".exitoso");
-    enviado.innerHTML = "Mensaje Enviado con éxito";
-  }
-  validar(valorName);
 });
 function limpiardatos() {
   document.querySelector(".errorNombre").innerHTML = "";
   document.querySelector(".errorAsunto").innerHTML = "";
   document.querySelector(".errorMensaje").innerHTML = "";
+  document.querySelector(".exitoso").innerHTML = "";
 }
 
-function validar() {
-  let valorName = name.value;
+function validar(valorName,valorSubject) {
   let okvalidacion = true;
-  let validacionNombre = /^[a-zA-Z\s]+$/g.test(valorName);
-
-  if (validacionNombre === false) {
+  if (!/^[a-zA-Z\s]+$/g.test(valorName)) {
     document.querySelector(".errorNombre").innerHTML = "Ingrese un nombre válido" 
     okvalidacion = false;
-  }}
+  }  if (!/^[a-zA-Z\s]+$/g.test(valorSubject)) {
+    document.querySelector(".errorNombre").innerHTML = "Ingrese un nombre válido" 
+    okvalidacion = false;
+  }
+  return okvalidacion;
+}
